@@ -196,6 +196,71 @@
 .mini-cal-legend .dot.event {
   background: var(--red);
 }
+
+    /* EVENTS LIST */
+.ev-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ev-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.ev-item:first-child {
+  border-top: none;
+}
+
+.ev-date {
+  min-width: 52px;
+  text-align: center;
+  padding: 0.35rem 0.4rem;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.ev-date .mo {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gray-mid);
+}
+
+.ev-date .dy {
+  font-family: var(--font-d);
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--black);
+}
+
+.ev-info h4 {
+  font-size: 0.95rem;
+  margin: 0 0 0.15rem;
+}
+
+.ev-info p {
+  font-size: 0.85rem;
+  margin: 0;
+  color: var(--gray);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  margin-top: 0.25rem;
+}
   </style>
 </head>
 <body>
@@ -352,6 +417,40 @@
             </li>
           </ul>
         </div>
+
+         <!-- Detailed events list -->
+  <div class="ev-list">
+    <div class="ev-item">
+      <div class="ev-date">
+        <span class="mo">May</span><span class="dy">3</span>
+      </div>
+      <div style="display:flex;gap:.5rem;flex:1;align-items:flex-start;">
+        <div class="dot" style="background:#D72B2B;"></div>
+        <div class="ev-info">
+          <h4>Free Pho Giveaway — Pho Saigon, Tenderloin</h4>
+          <p>Free bowls for teens with student ID. Sponsored by Bay Area Teen Health Initiative.
+             4pm–7pm · 676 Geary St, SF</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ev-item">
+      <div class="ev-date">
+        <span class="mo">May</span><span class="dy">5</span>
+      </div>
+      <div style="display:flex;gap:.5rem;flex:1;align-items:flex-start;">
+        <div class="dot" style="background:#2450B5;"></div>
+        <div class="ev-info">
+          <h4>Morning Tai Chi — Dolores Park</h4>
+          <p>Free community tai chi for all ages. Stress relief and flexibility.
+             8am–9:30am · Mission Terrace, SF</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- repeat your other .ev-item blocks here -->
+  </div>
+</div>
 
       </div>
     </div>
