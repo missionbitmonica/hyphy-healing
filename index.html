@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hyphy & Healing | Bay Area Wellness</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --red:#D72B2B;--red-dark:#A61E1E;
+      --blue:#1A3A8F;--blue-mid:#2450B5;--blue-light:#3D6FD4;--blue-pale:#E8EEFF;
+      --white:#FAFAFA;--off-white:#F2F0EB;
+      --black:#0C0C0C;--charcoal:#1C1C1E;--gray:#3A3A3C;--gray-mid:#6E6E73;--gray-light:#D1D1D6;
+      --border:rgba(12,12,12,0.1);
+      --font-d:'Bebas Neue',sans-serif;
+      --font-b:'DM Sans',sans-serif;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--off-white);color:var(--black);font-family:var(--font-b);font-size:16px;line-height:1.7;}
+
+    /* TICKER */
+    .ticker{background:var(--blue);padding:7px 0;overflow:hidden;white-space:nowrap;}
+    .ticker-inner{display:inline-block;animation:tick 30s linear infinite;font-family:var(--font-b);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#fff;}
+    @keyframes tick{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+    /* NAV */
+    nav{background:var(--black);position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:62px;border-bottom:3px solid var(--red);}
+    .nav-logo{font-family:var(--font-d);font-size:1.6rem;letter-spacing:.04em;color:#fff;text-decoration:none;}
+    .nav-logo span{color:var(--red);}
+    nav ul{list-style:none;display:flex;gap:2rem;align-items:center;}
+    nav a{font-family:var(--font-b);font-size:.85rem;font-weight:600;color:rgba(255,255,255,.55);text-decoration:none;letter-spacing:.04em;text-transform:uppercase;transition:color .2s;padding:4px 0;border-bottom:2px solid transparent;}
+    nav a:hover{color:#fff;}
+    nav a.active{color:#fff;border-bottom-color:var(--red);}
+
+    /* PAGES */
+    .page{display:none;}
+    .page.active{display:block;}
+
+    /* HERO */
+    .hero{position:relative;background:var(--black);overflow:hidden;min-height:580px;display:flex;align-items:stretch;}
+    .hero-left{position:relative;z-index:10;width:46%;padding:4rem 3rem 4rem 3.5rem;display:flex;flex-direction:column;justify-content:center;}
+    .hero::before{content:'';position:absolute;top:0;bottom:0;left:42%;width:110px;background:var(--red);transform:skewX(-5deg);z-index:5;}
+    .hero::after{content:'';position:absolute;top:0;bottom:0;left:41.2%;width:16px;background:var(--blue);transform:skewX(-5deg);z-index:6;}
+    .hero-right{position:absolute;right:0;top:0;bottom:0;width:58%;z-index:4;background:linear-gradient(135deg,#0C1A3A 0%,#0C0C0C 65%);overflow:hidden;}
+    .hero-right::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:22px 22px;}
+    .hero-eyebrow{font-family:var(--font-b);font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;}
+    .hero-eyebrow::before{content:'';width:30px;height:3px;background:var(--red);display:block;}
+    .hero h1{font-family:var(--font-d);font-size:5.2rem;line-height:.92;letter-spacing:.02em;color:#fff;margin-bottom:1.5rem;}
+    .hero h1 .r{color:var(--red);display:block;}
+    .hero h1 .b{color:#6B96FF;display:block;}
+    .hero-sub{font-size:.94rem;color:rgba(255,255,255,.5);max-width:360px;margin-bottom:2rem;line-height:1.7;}
+    .hero-badges{display:flex;gap:.5rem;flex-wrap:wrap;}
+    .badge{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.75);font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:3px;}
+    .hero-caption{position:absolute;bottom:1.5rem;right:2rem;z-index:20;text-align:right;}
+    .hero-caption p{font-size:.74rem;font-weight:600;color:rgba(255,255,255,.35);letter-spacing:.04em;}
+    @keyframes fu{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+    .f1{animation:fu .6s .05s both;}
+    .f2{animation:fu .6s .2s both;}
+    .f3{animation:fu .6s .35s both;}
+
+    /* MAIN */
+    .main-wrap{max-width:1200px;margin:0 auto;padding:3rem 2rem;display:grid;grid-template-columns:8fr 4fr;gap:2.5rem;align-items:start;}
+    .sec-label{font-family:var(--font-b);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem;}
+    .sec-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+    /* ARTICLES */
+    .feat{background:#fff;border:1px solid var(--border);overflow:hidden;margin-bottom:2.5rem;box-shadow:0 2px 20px rgba(0,0,0,.06);}
+    .feat-img{width:100%;height:280px;background:var(--charcoal);position:relative;overflow:hidden;}
+    .feat-body{padding:1.75rem;}
+    .atag{display:inline-block;background:var(--blue);color:#fff;font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;margin-bottom:.75rem;}
+    .atag.r{background:var(--red);}
+    .feat-body h2{font-family:var(--font-d);font-size:1.9rem;font-weight:400;line-height:1.1;margin-bottom:.75rem;letter-spacing:.02em;color:var(--black);}
+    .feat-body p,.acard-body p{color:var(--gray);font-size:.93rem;line-height:1.75;margin-bottom:.75rem;}
+    .pq{border-left:4px solid var(--red);padding:1rem 1.25rem;margin:1.25rem 0;background:var(--blue-pale);}
+    .pq p{font-size:1.05rem!important;color:var(--blue)!important;font-style:italic;font-weight:500!important;margin:0!important;line-height:1.55!important;}
+    .byline{font-size:.76rem;color:var(--gray-mid);border-top:1px solid var(--border);padding-top:.75rem;margin-top:1.25rem;display:flex;justify-content:space-between;}
+    .acard{background:#fff;border:1px solid var(--border);overflow:hidden;margin-bottom:2.5rem;box-shadow:0 2px 20px rgba(0,0,0,.06);}
+    .acard-img{width:100%;height:210px;background:var(--charcoal);position:relative;overflow:hidden;}
+    .acard-body{padding:1.5rem;}
+    .acard-body h3{font-family:var(--font-d);font-size:1.55rem;font-weight:400;line-height:1.15;margin-bottom:.6rem;letter-spacing:.02em;color:var(--black);}
+
+    /* image helpers */
+    .hero-img {
+      position: relative;
+      min-height: 260px;
+      overflow: hidden;
+    }
+    .hero-img-el,
+    .feat-img-el,
+    .acard-img-el {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- simple ticker + nav if you want them later
+  <div class="ticker">
+    <div class="ticker-inner">HYPPHY & HEALING · BAY AREA TEEN WELLNESS · MENTAL HEALTH THROUGH MOVEMENT</div>
+  </div>
+  -->
+
+  <div class="page active" id="page-home">
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-eyebrow">Mental Health · Movement · Bay Area</div>
+        <h1>
+          HYPPHY <span class="r">HEALING</span>
+          <span class="b">FOR BAY AREA TEENS</span>
+        </h1>
+        <p class="hero-sub">
+          A storytelling hub for community-rooted, joy-centered mental health practices —
+          from neon dance classes to neighborhood kiki sessions.
+        </p>
+        <div class="hero-badges">
+          <span class="badge">Dance &amp; Movement</span>
+          <span class="badge">Youth Voices</span>
+          <span class="badge">Community Care</span>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-img">
+          <img
+            src="demo-hero.png"
+            alt="Violet the Valkyries mascot leading a diverse teen dance class in a neon-lit Bay Area community gym"
+            class="hero-img-el"
+          >
+        </div>
+      </div>
+    </section>
+
+    <main class="main-wrap">
+      <section>
+        <div class="sec-label">Health &amp; Movement</div>
+
+        <!-- FEATURE: Kiki -->
+        <article class="feat">
+          <div class="feat-img">
+            <img
+              src="demo-feature-kiki.png"
+              alt="Teens laughing and vibing together during a kiki-style movement session"
+              class="feat-img-el"
+            >
+          </div>
+          <div class="feat-body">
+            <span class="atag r">Joy &amp; Community</span>
+            <h2>Why a Weekly Kiki Might Be the Realest Mental Health Practice in Your Block</h2>
+            <p>Every Thursday night, a crew of teens takes over the rec room —
+               not for a lecture, but for a kiki: music up, snacks out, and
+               everybody with space to be loud, soft, or somewhere in between.</p>
+            <div class="byline">
+              <span>By <strong>Staff</strong></span>
+              <span>April 2026 · 5 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- FEATURE: Smeeze / calendar -->
+        <article class="acard">
+          <div class="acard-img">
+            <img
+              src="demo-smeeze.png"
+              alt="Violet mid smeeze dance move in a neon-lit community gym with a diverse class"
+              class="acard-img-el"
+            >
+          </div>
+          <div class="acard-body">
+            <span class="atag">Upcoming Class</span>
+            <h3>Learn the Smeeze With Violet and Friends at This Month's Community Dance Clinic</h3>
+            <p>Drop in, learn the steps, and move at your own pace — no prior dance
+               experience, perfect fits, or perfect mood required.</p>
+            <div class="byline">
+              <span>Saturday · 3–5 PM · Oakland</span>
+              <span>Free · Registration encouraged</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Right column placeholder -->
+      <aside>
+        <!-- you can add sidebar content here later -->
+      </aside>
+    </main>
+  </div>
+
+</body>
+</html>
