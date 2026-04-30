@@ -253,13 +253,18 @@
   margin-top: 0.25rem;
 }
 
-    .mv-p img{
+ .mv-p{
+  /* keep it from blowing up in wider layouts */
+  max-width:100%;
+}
+
+.mv-p img{
   display:block;
   width:100%;
   height:auto;
-  max-height:160px;          /* tweak this height to taste */
-  object-fit:cover;          /* crops instead of squishing [web:57][web:66] */
-  border-radius:8px;         /* optional: match card rounding */
+  max-height:160px;      /* adjust to taste */
+  object-fit:cover;      /* crop rather than squish [web:57][web:66] */
+  border-radius:8px;     /* optional: match card radius */
 }
     
   </style>
