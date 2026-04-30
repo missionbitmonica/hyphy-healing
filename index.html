@@ -85,8 +85,9 @@
   /* image helpers */
 .hero-img {
   position: relative;
-  height: 420px;    /* or whatever height you like */
-  overflow: hidden; /* was visible */
+  height: 420px;          /* keep your chosen height */
+  overflow-x: hidden;     /* NEW: hide sideways overflow only */
+  overflow-y: visible;    /* keep vertical overflow so the image can sit low */
 }
 
 .hero-img-el {
