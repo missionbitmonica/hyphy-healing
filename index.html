@@ -99,20 +99,21 @@
   transform: translate(-50%, -25%);
 }
 
-/* feature image */
+/* feature image container stays constrained to the grid column */
 .feat-img {
   width: 100%;
   height: 280px;
   background: var(--charcoal);
   position: relative;
-  overflow: hidden;
+  overflow: hidden;      /* keep this */
 }
 
+/* image framed lower, but never wider than the card */
 .feat-img-el {
   position: absolute;
   left: 50%;
-  top: 60%;
-  width: 100%;
+  top: 50%;              /* start centered */
+  min-width: 100%;       /* make sure it fills horizontally */
   height: auto;
   transform: translate(-50%, -50%);
 }
