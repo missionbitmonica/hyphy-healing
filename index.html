@@ -108,6 +108,85 @@
       object-fit: cover;
       display: block;
     }
+
+    .mini-cal {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 0.75rem 0.9rem 0.85rem;
+}
+
+.mini-cal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.35rem;
+}
+
+.mini-cal-month {
+  font-family: var(--font-d);
+  font-size: 1.1rem;
+  letter-spacing: .06em;
+}
+
+.mini-cal-meta {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--gray-mid);
+}
+
+.mini-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 0.4rem;
+  font-size: .7rem;
+}
+
+.mini-cal-dow {
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gray-mid);
+}
+
+.mini-cal-day {
+  border: none;
+  background: transparent;
+  padding: 4px 0;
+  border-radius: 5px;
+  text-align: center;
+  cursor: default;
+  font-family: var(--font-b);
+  font-size: .7rem;
+  color: var(--gray);
+}
+
+.mini-cal-day.is-event {
+  background: rgba(215,43,43,.08);
+  color: var(--red-dark);
+  font-weight: 600;
+}
+
+.mini-cal-legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .7rem;
+  color: var(--gray-mid);
+}
+
+.mini-cal-legend .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.mini-cal-legend .dot.event {
+  background: var(--red);
+}
   </style>
 </head>
 <body>
@@ -175,7 +254,7 @@
       </div>
     </article>
 
-    <!-- FEATURE: Smeeze / calendar card in left column -->
+    <!-- FEATURE: Smeeze / calendar teaser -->
     <article class="acard">
       <div class="acard-img">
         <img
@@ -196,132 +275,190 @@
       </div>
     </article>
 
-    <!-- INLINE CALENDAR IN MAIN LEFT COLUMN -->
+    <!-- INLINE CALENDAR IN LEFT COLUMN -->
     <div class="sec-label">This Week</div>
 
     <div class="acard" style="padding:1.5rem;">
-      <div class="acard-body" style="padding:0;">
-        <h3 style="margin-bottom:0.75rem;">Community Movement Calendar</h3>
-        <ul style="list-style:none; padding:0; margin:0; font-size:.9rem;">
-          <li style="margin-bottom:.6rem;">
-            <strong>Thu · 6–8 PM</strong><br>
-            Kiki &amp; Chill · Rec Room, SoMa
-          </li>
-          <li style="margin-bottom:.6rem;">
-            <strong>Fri · 7–9 PM</strong><br>
-            Neon Dance Cardio · Bryant St Gym
-          </li>
-          <li>
-            <strong>Sat · 3–5 PM</strong><br>
-            Smeeze Clinic w/ Violet · Oakland
-          </li>
-        </ul>
+      <div class="acard-body" style="padding:0; display:flex; flex-direction:column; gap:1rem;">
+
+        <!-- Physical-style month calendar -->
+        <div class="mini-cal">
+          <div class="mini-cal-header">
+            <span class="mini-cal-month">April 2026</span>
+            <span class="mini-cal-meta">Bay Area · PT</span>
+          </div>
+          <div class="mini-cal-grid">
+            <div class="mini-cal-dow">S</div>
+            <div class="mini-cal-dow">M</div>
+            <div class="mini-cal-dow">T</div>
+            <div class="mini-cal-dow">W</div>
+            <div class="mini-cal-dow">T</div>
+            <div class="mini-cal-dow">F</div>
+            <div class="mini-cal-dow">S</div>
+
+            <!-- Leading blanks for layout (tweak if you want exact real dates) -->
+            <div></div><div></div><div></div><div></div>
+            <button class="mini-cal-day">1</button>
+            <button class="mini-cal-day">2</button>
+            <button class="mini-cal-day">3</button>
+            <button class="mini-cal-day">4</button>
+            <button class="mini-cal-day">5</button>
+            <button class="mini-cal-day is-event">6</button>
+            <button class="mini-cal-day">7</button>
+            <button class="mini-cal-day">8</button>
+            <button class="mini-cal-day">9</button>
+            <button class="mini-cal-day">10</button>
+            <button class="mini-cal-day">11</button>
+            <button class="mini-cal-day is-event">12</button>
+            <button class="mini-cal-day">13</button>
+            <button class="mini-cal-day">14</button>
+            <button class="mini-cal-day">15</button>
+            <button class="mini-cal-day">16</button>
+            <button class="mini-cal-day">17</button>
+            <button class="mini-cal-day">18</button>
+            <button class="mini-cal-day is-event">19</button>
+            <button class="mini-cal-day">20</button>
+            <!-- add/remove days as you like -->
+          </div>
+          <div class="mini-cal-legend">
+            <span class="dot event"></span> Event week · Kiki, Neon Cardio, Smeeze
+          </div>
+        </div>
+
+        <!-- Text event list -->
+        <div>
+          <h3 style="margin-bottom:0.75rem;">Community Movement Calendar</h3>
+          <ul style="list-style:none; padding:0; margin:0; font-size:.9rem;">
+            <li style="margin-bottom:.6rem;">
+              <strong>Thu · 6–8 PM</strong><br>
+              Kiki &amp; Chill · Rec Room, SoMa
+            </li>
+            <li style="margin-bottom:.6rem;">
+              <strong>Fri · 7–9 PM</strong><br>
+              Neon Dance Cardio · Bryant St Gym
+            </li>
+            <li>
+              <strong>Sat · 3–5 PM</strong><br>
+              Smeeze Clinic w/ Violet · Oakland
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- RIGHT COLUMN (4-COLUMN SIDEBAR) -->
+  <!-- RIGHT COLUMN (THREE SEPARATE CARDS) -->
   <aside>
-    <div class="sw">
-      <div class="wh"><span>▶</span> Albums to Watch</div>
+    <!-- Albums card -->
+    <article class="acard sw">
+      <div class="acard-body">
+        <div class="wh"><span>▶</span> Albums to Watch</div>
 
-      <div class="alb">
-        <div class="alb-art"
-             style="background:linear-gradient(135deg,#D72B2B,#6B0000);">🎤</div>
-        <div class="alb-info">
-          <h4>Bay Certified Vol. 3</h4>
-          <p>Bay Area Hyphy Collective</p>
-          <span class="pill">May 15 Drop</span>
+        <div class="alb">
+          <div class="alb-art"
+               style="background:linear-gradient(135deg,#D72B2B,#6B0000);">🎤</div>
+          <div class="alb-info">
+            <h4>Bay Certified Vol. 3</h4>
+            <p>Bay Area Hyphy Collective</p>
+            <span class="pill">May 15 Drop</span>
+          </div>
+        </div>
+
+        <div class="alb">
+          <div class="alb-art"
+               style="background:linear-gradient(135deg,#1A3A8F,#06174A);">🎶</div>
+          <div class="alb-info">
+            <h4>Scraper Sunsets</h4>
+            <p>DJ Shadow Thizz feat. Oakland All-Stars</p>
+            <span class="pill">June 2 Drop</span>
+          </div>
+        </div>
+
+        <div class="alb">
+          <div class="alb-art"
+               style="background:linear-gradient(135deg,#1C1C1E,#3A3A3C);">🎸</div>
+          <div class="alb-info">
+            <h4>Eastside Elevation</h4>
+            <p>La Raza Waves — East Bay Cumbia &amp; Rap</p>
+            <span class="pill">June 20 Drop</span>
+          </div>
+        </div>
+
+        <div class="alb">
+          <div class="alb-art"
+               style="background:linear-gradient(135deg,#2450B5,#D72B2B);">🎹</div>
+          <div class="alb-info">
+            <h4>Kiki Season</h4>
+            <p>Sideshow Anthem Series</p>
+            <span class="pill">July Drop</span>
+          </div>
         </div>
       </div>
+    </article>
 
-      <div class="alb">
-        <div class="alb-art"
-             style="background:linear-gradient(135deg,#1A3A8F,#06174A);">🎶</div>
-        <div class="alb-info">
-          <h4>Scraper Sunsets</h4>
-          <p>DJ Shadow Thizz feat. Oakland All-Stars</p>
-          <span class="pill">June 2 Drop</span>
+    <!-- Movies card -->
+    <article class="acard sw">
+      <div class="acard-body">
+        <div class="wh"><span>▶</span> Upcoming Movies</div>
+
+        <div class="mv">
+          <div class="mv-p"
+               style="background:linear-gradient(180deg,#1A0808,#4A0C0C);">🎥</div>
+          <div class="mv-i">
+            <h4>Hyphy Nation</h4>
+            <p>Doc following three Bay Area teens finding identity through hyphy culture.
+               Opens June 6.</p>
+          </div>
+        </div>
+
+        <div class="mv">
+          <div class="mv-p"
+               style="background:linear-gradient(180deg,#0C1A0C,#1A3A8F);">🎥</div>
+          <div class="mv-i">
+            <h4>Mango &amp; Meridian</h4>
+            <p>Coming-of-age story across Oakland, Daly City &amp; East Palo Alto.
+               Opens June 27.</p>
+          </div>
+        </div>
+
+        <div class="mv">
+          <div class="mv-p"
+               style="background:linear-gradient(180deg,#1C1C1E,#3A3A3C);">🎥</div>
+          <div class="mv-i">
+            <h4>The Block Remembers</h4>
+            <p>Animated feature celebrating Fruitvale, Fillmore &amp; Bayview history.
+               July 4.</p>
+          </div>
+        </div>
+
+        <div class="mv">
+          <div class="mv-p"
+               style="background:linear-gradient(180deg,#0C0C1E,#2450B5);">🎥</div>
+          <div class="mv-i">
+            <h4>Scraper Dreams</h4>
+            <p>Bay Area teen drama. "Stand By Me meets hyphy." Wide release Aug 1.</p>
+          </div>
         </div>
       </div>
+    </article>
 
-      <div class="alb">
-        <div class="alb-art"
-             style="background:linear-gradient(135deg,#1C1C1E,#3A3A3C);">🎸</div>
-        <div class="alb-info">
-          <h4>Eastside Elevation</h4>
-          <p>La Raza Waves — East Bay Cumbia &amp; Rap</p>
-          <span class="pill">June 20 Drop</span>
-        </div>
+    <!-- Study help / AI card -->
+    <article class="acard ai-ad">
+      <div class="acard-body">
+        <span class="ad-lbl">Sponsored</span>
+        <h3>Meet Your <em>AI Study Buddy</em> — Learn to Use AI the Right Way</h3>
+        <p>Personalized help with homework, essays, and projects — an
+           AI tutor that teaches you to use AI tools ethically and effectively.</p>
+        <ul class="ad-ul">
+          <li>Homework help, step by step</li>
+          <li>Learn when &amp; how to use AI fairly</li>
+          <li>Essay outlining in your own voice</li>
+          <li>Free for Bay Area students</li>
+        </ul>
+        <a class="cta" href="#">Try AI Tutor Free →</a>
       </div>
-
-      <div class="alb">
-        <div class="alb-art"
-             style="background:linear-gradient(135deg,#2450B5,#D72B2B);">🎹</div>
-        <div class="alb-info">
-          <h4>Kiki Season</h4>
-          <p>Sideshow Anthem Series</p>
-          <span class="pill">July Drop</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="sw">
-      <div class="wh"><span>▶</span> Upcoming Movies</div>
-
-      <div class="mv">
-        <div class="mv-p"
-             style="background:linear-gradient(180deg,#1A0808,#4A0C0C);">🎥</div>
-        <div class="mv-i">
-          <h4>Hyphy Nation</h4>
-          <p>Doc following three Bay Area teens finding identity through hyphy culture.
-             Opens June 6.</p>
-        </div>
-      </div>
-
-      <div class="mv">
-        <div class="mv-p"
-             style="background:linear-gradient(180deg,#0C1A0C,#1A3A8F);">🎥</div>
-        <div class="mv-i">
-          <h4>Mango &amp; Meridian</h4>
-          <p>Coming-of-age story across Oakland, Daly City &amp; East Palo Alto.
-             Opens June 27.</p>
-        </div>
-      </div>
-
-      <div class="mv">
-        <div class="mv-p"
-             style="background:linear-gradient(180deg,#1C1C1E,#3A3A3C);">🎥</div>
-        <div class="mv-i">
-          <h4>The Block Remembers</h4>
-          <p>Animated feature celebrating Fruitvale, Fillmore &amp; Bayview history.
-             July 4.</p>
-        </div>
-      </div>
-
-      <div class="mv">
-        <div class="mv-p"
-             style="background:linear-gradient(180deg,#0C0C1E,#2450B5);">🎥</div>
-        <div class="mv-i">
-          <h4>Scraper Dreams</h4>
-          <p>Bay Area teen drama. "Stand By Me meets hyphy." Wide release Aug 1.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="ai-ad">
-      <span class="ad-lbl">Sponsored</span>
-      <h3>Meet Your <em>AI Study Buddy</em> — Learn to Use AI the Right Way</h3>
-      <p>Personalized help with homework, essays, and projects — an
-         AI tutor that teaches you to use AI tools ethically and effectively.</p>
-      <ul class="ad-ul">
-        <li>Homework help, step by step</li>
-        <li>Learn when &amp; how to use AI fairly</li>
-        <li>Essay outlining in your own voice</li>
-        <li>Free for Bay Area students</li>
-      </ul>
-      <a class="cta" href="#">Try AI Tutor Free →</a>
-    </div>
+    </article>
   </aside>
 </main>
   </div>
