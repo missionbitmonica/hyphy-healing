@@ -99,23 +99,23 @@
    
 
     
-    /* for that one feature card only */
+/* Make the card's image box taller */
 .feat-img {
   width: 100%;
-  height: 280px;           /* your existing height */
+  height: 360px;          /* was 280px – increase until it feels right */
   background: var(--charcoal);
   position: relative;
-  overflow: hidden;        /* keep */
+  overflow: hidden;       /* keep this */
 }
 
-.feat-img-el, .acard-img-el {
+/* Keep full-bleed behavior */
+.feat-img-el {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;     /* was cover */
+  object-fit: cover;      /* keep cover for full-card fill */
   display: block;
-  background: #000;        /* optional letterbox color */
 }
 
 
