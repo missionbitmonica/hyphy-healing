@@ -99,23 +99,22 @@
    
 
     
-/* Make the card's image box taller */
 .feat-img {
   width: 100%;
-  height: 360px;          /* was 280px – increase until it feels right */
+  height: 280px;             /* your original height */
   background: var(--charcoal);
   position: relative;
-  overflow: hidden;       /* keep this */
+  overflow: hidden;
 }
 
-/* Keep full-bleed behavior */
+/* for the cropped feature image */
 .feat-img-el {
   position: absolute;
-  inset: 0;
+  left: 50%;
+  top: 60%;                  /* >50 pushes the visible area down */
   width: 100%;
-  height: 100%;
-  object-fit: cover;      /* keep cover for full-card fill */
-  display: block;
+  height: auto;
+  transform: translate(-50%, -50%);
 }
 
 
