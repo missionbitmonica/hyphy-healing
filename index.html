@@ -99,24 +99,25 @@
    
 
     
-    .feat-img-el {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    /* for that one feature card only */
+.feat-img {
+  width: 100%;
+  height: 280px;           /* your existing height */
+  background: var(--charcoal);
+  position: relative;
+  overflow: hidden;        /* keep */
+}
 
-    .acard-img-el {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      overflow: visible;
-    }
+.feat-img-el, .acard-img-el {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;     /* was cover */
+  display: block;
+  background: #000;        /* optional letterbox color */
+}
+
 
     .mini-cal {
   border-radius: 10px;
