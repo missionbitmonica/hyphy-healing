@@ -255,15 +255,16 @@
 
 .mv{
   display:flex;
-  gap:0.75rem;        /* if you’re not already doing this */
+  flex-direction:column;  /* stack image + text */
+  gap:0.75rem;
 }
 
 .mv-p{
-  flex:0 0 80px;      /* fixed-ish poster strip */
+  flex:0 0 auto;         /* let it size to its content */
 }
 
 .mv-i{
-  flex:1 1 auto;      /* text takes the remaining width */
+  flex:1 1 auto;
 }
 
     /* Keep the image inside its box without affecting columns */
